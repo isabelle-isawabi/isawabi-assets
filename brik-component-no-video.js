@@ -46,7 +46,7 @@ var controls = (function () {
     softness: 1,
     recovery: 0.01,
     damping: 0.9,
-    idle_intensity: 1,
+    idle_intensity: 1.8,
     idle_trigger: "Continuous",
     enable_cursor_influence: true,
     cursor_force: 0.8,
@@ -259,7 +259,7 @@ function initMesh() {
       totalW = size * aspect;
     }
 
-    const maxRes = 320;
+    const maxRes = 200;
     const resX = aspect > 1 ? maxRes : Math.round(maxRes * aspect);
     const resY = aspect > 1 ? Math.round(maxRes / aspect) : maxRes;
     const margin = 1.4;
@@ -444,7 +444,7 @@ function animate() {
 
     if (idle > 0 && idleAlpha > 0.001) {
       const softnessShape = THREE.MathUtils.lerp(0.25, 1.0, softness);
-      const freq = THREE.MathUtils.lerp(28.0, 14.0, softness);
+      const freq = THREE.MathUtils.lerp(32.0, 18.0, softness);
       const idleNormalized = idle / 2.0;
       const driftSpeed = THREE.MathUtils.lerp(1.0, 1.45, idleNormalized);
       const nx = x / meshW;
